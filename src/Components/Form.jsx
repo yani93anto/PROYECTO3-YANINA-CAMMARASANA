@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Properties } from "./Form/Properties";
 import { Location } from "./Form/Location";
 import { Meters2 } from "./Form/Meters2";
