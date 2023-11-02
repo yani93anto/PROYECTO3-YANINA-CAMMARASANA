@@ -11,18 +11,46 @@ export function Form() {
   const [propiedadData, setPropiedadData] = useState([]);
 
   useEffect(() => {
-    // Realiza la solicitud fetch al archivo JSON
-    fetch("datos.json")
-      .then((response) => response.json())
-      .then((data) => {
-        // Filtra los datos por categoría
+    const fetchData = async () => {
+      try {
+        // Fetch data from "datos.json"
+        const response = await fetch("/src/Components/datos.json");
+        if (!response.ok) {
+          throw new Error("Error al cargar los datos");
+        }
+
+        const data = await response.json();
+        const ubicacion = data.filter((item) => item.categoria === "ubicacion");
+        const propiedad = data.filter((item) => item.categoria === "propiedad");
+
+        // Store data in local storage
+        localStorage.setItem("datosvivienda", JSON.stringify(data));
+
+        setUbicacionData(ubicacion);
+        setPropiedadData(propiedad);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+
+    const loadDataFromLocalStorage = () => {
+      const storedData = localStorage.getItem("datosvivienda");
+      if (storedData) {
+        const data = JSON.parse(storedData);
         const ubicacion = data.filter((item) => item.categoria === "ubicacion");
         const propiedad = data.filter((item) => item.categoria === "propiedad");
 
         setUbicacionData(ubicacion);
         setPropiedadData(propiedad);
-      })
-      .catch((error) => console.error("Error al cargar los datos", error));
+      }
+    };
+
+    // First, try to load data from local storage
+    loadDataFromLocalStorage();
+
+    // Then, fetch data from "datos.json" and save it to local storage
+    fetchData();
   }, []);
 
   return (
