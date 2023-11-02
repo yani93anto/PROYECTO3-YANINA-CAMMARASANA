@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Properties } from "./Form/Properties";
+import { Property } from "./Form/Property";
 import { Location } from "./Form/Location";
 import { Meters2 } from "./Form/Meters2";
 import { Button } from "./Form/Button";
@@ -56,7 +56,7 @@ export function Form() {
   return (
     <div className=" center div-cotizador">
       <h2 className="center separador">Completa los datos solicitados</h2>
-      <Properties datos={propiedadData} />
+      <Property datos={propiedadData} />
       <Location datos={ubicacionData} />
       <Meters2 />
       <Button />

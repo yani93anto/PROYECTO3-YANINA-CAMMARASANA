@@ -1,5 +1,5 @@
 import React from "react";
-export function Properties({ datos }) {
+export function Property({ datos }) {
   return (
     <div>
       <label htmlFor="propiedad">Selecciona el tipo de propiedad</label>
@@ -17,4 +17,4 @@ export function Properties({ datos }) {
   );
 }
 
-export default Properties;
+export default Property;
