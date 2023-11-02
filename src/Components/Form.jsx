@@ -7,9 +7,9 @@ import { Button } from "./Form/Button+Price";
 export function Form() {
   const [selectPropiedad, setSelectPropiedad] = useState("...");
   const [selectUbicacion, setSelectUbicacion] = useState("...");
-  /*const [inputMetros2, setInputMetros2] = useState(20);
-  const [valorPoliza, setValorPoliza] = useState("0.00");
-  const costoM2 = 35.86;*/
+  const [inputMts2, setInputMts2] = useState(20);
+  const [spanValorPoliza, setSpanValorPoliza] = useState("0.00");
+  const costoM2 = 35.86;
   // Define estados para almacenar datos de categoría "ubicacion" y "propiedad"
   const [ubicacionData, setUbicacionData] = useState([]);
   const [propiedadData, setPropiedadData] = useState([]);
@@ -31,12 +31,20 @@ export function Form() {
       <h2 className="center separador">Completa los datos solicitados</h2>
       <Property datos={propiedadData} setPropiedad={setSelectPropiedad} />
       <Location datos={ubicacionData} setUbicacion={setSelectUbicacion}/>
-      <Meters2 />
+      <Meters2 
+        inputMts2={inputMts2}
+        setInputMts2={setInputMts2}
+      />
       <Button 
         propiedadData={propiedadData}
         selectPropiedad={selectPropiedad}
         ubicacionData={ubicacionData}
-        selectUbicacion={selectUbicacion} />
+        selectUbicacion={selectUbicacion}
+        inputMts2={inputMts2}
+        costoM2={costoM2}
+        spanValorPoliza={spanValorPoliza}
+        setSpanValorPoliza={setSpanValorPoliza}
+        />
     </div>
   );
 }
