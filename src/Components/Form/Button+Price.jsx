@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import Toastify from "toastify-js";
 import { useState } from "react";
+
 export function Button({
   propiedadData,
   selectPropiedad,
@@ -76,25 +77,20 @@ export function Button({
       const cotizaciones = JSON.parse(localStorage.getItem("cotizacion")) || [];
       cotizaciones.push(agragarCotizacion);
       localStorage.setItem("cotizacion", JSON.stringify(cotizaciones));
-    }
-  };
 
-  {
-    /* TOASTIFY */
-  }
-  const toast = () => {
-    guardar();
-    Toastify({
-      text: "Cotización guardada.",
-      duration: 4000,
-      newWindow: true,
-      gravity: "top",
-      position: "right",
-      style: {
-        background: "CornflowerBlue",
-      },
+      // Toastify para indicar que la cotización se ha guardado
+      Toastify({
+        text: "Cotización guardada.",
+        duration: 4000,
+        newWindow: true,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "CornflowerBlue",
+        },
     }).showToast();
-  };
+  }
+};
 
   return (
     <>
@@ -106,7 +102,7 @@ export function Button({
           Precio estimado: $ <span id="valorPoliza">{spanValorPoliza}</span>
           <span
             className={`guardar ${cotizado ? "" : "ocultar"}`}
-            onClick={toast}
+            onClick={guardar}
             title="Guardar en historial"
           >
             💾
