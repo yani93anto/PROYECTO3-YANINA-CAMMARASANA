@@ -4,7 +4,7 @@ export function Header() {
   return (
     <nav>
         <div className="historial">
-          <Link to="../Pages/Historial">
+          <Link to="historial">
             <span title="Ver Historial">📋</span>
           </Link>
         </div>

@@ -1,4 +1,3 @@
-import React from "react";
 export function Location({ datos, setUbicacion }) {
   const handleChange = (e) => {
     setUbicacion(e.target.value)};

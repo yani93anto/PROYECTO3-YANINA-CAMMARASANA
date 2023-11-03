@@ -29,14 +29,13 @@ export function Button({
   const guardar = () => {
     if (cotizado) {
       const agragarCotizacion = {
-        fecha: new Date().toLocaleDateString(),
+        fecha: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
         propiedad: selectPropiedad,
         ubicacion: selectUbicacion,
         mts2: inputMts2,
         poliza: spanValorPoliza,
       };
-      const cotizaciones =
-        JSON.parse(localStorage.getItem("cotizacion")) || "[]";
+      const cotizaciones = JSON.parse(localStorage.getItem("cotizacion")) || [];
       cotizaciones.push(agragarCotizacion);
       localStorage.setItem("cotizacion", JSON.stringify(cotizaciones));
     }
@@ -45,15 +44,15 @@ export function Button({
     /* SWEETALERT */
   }
   const handleClick = (title, icon) => {
-      cotizar();
-      Swal.fire({
-        icon: "",
-        title: "Cotización realizada con éxito.",
-        showConfirmButton: false,
-        timer: 3500,
-        width: "240px",
-      });
-    };
+    cotizar();
+    Swal.fire({
+      icon: "",
+      title: "Cotización realizada con éxito.",
+      showConfirmButton: false,
+      timer: 3500,
+      width: "240px",
+    });
+  };
 
   {
     /* TOASTIFY */
@@ -81,7 +80,7 @@ export function Button({
         <p className="importe">
           Precio estimado: $ <span id="valorPoliza">{spanValorPoliza}</span>
           <span
-            className="guardar ocultar"
+            className={`guardar ${cotizado ? "" : "ocultar"}`}
             onClick={toast}
             title="Guardar en historial"
           >

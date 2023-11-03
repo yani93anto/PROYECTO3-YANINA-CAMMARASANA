@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
+
 export function Historial() {
+  const [cotizaciones, setcotizaciones] = useState([]);
+
+  useEffect(() => {
+    // Recupera los datos del LocalStorage
+    const cotizacionesGuardadas = JSON.parse(localStorage.getItem("cotizacion")) || [];
+    setcotizaciones(cotizacionesGuardadas);
+  }, []);
+
   return (
-    <div><h1 className="center separador">Ver Historial 📋</h1>
+    <div>
+      <h1 className="center separador">Ver Historial 📋</h1>
       <div className=" center div-cotizador">
         <table>
           <thead>
@@ -13,21 +24,37 @@ export function Historial() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Aquí</td>
-              <td>verás</td>
-              <td>las</td>
-              <td>cotizaciones</td>
-              <td>realizadas</td>
-            </tr>
+            {cotizaciones.map(
+              (
+                {
+                  fecha,
+                  propiedad,
+                  ubicacion,
+                  mts2,
+                  poliza,
+                },
+                index
+              ) => (
+                <tr key={index}>
+                  <td>{fecha}</td>
+                  <td>{propiedad}</td>
+                  <td>{ubicacion}</td>
+                  <td>{mts2}</td>
+                  <td>{poliza}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
         <div className="center separador">
-          <a href="index.html">
-            <button className="button button-outline">VOLVER</button>
-          </a>
+          <button
+            onClick={() => window.history.back()}
+            className="button button-outline">
+            VOLVER
+          </button>
         </div>
-      </div></div>
+      </div>
+    </div>
   );
 }
 
