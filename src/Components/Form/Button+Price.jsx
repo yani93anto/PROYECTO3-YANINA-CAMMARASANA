@@ -14,22 +14,50 @@ export function Button({
   const [cotizado, setCotizado] = useState(false);
 
   const cotizar = () => {
-    const factorPropiedad = propiedadData.find(
-      (item) => item.tipo === selectPropiedad
-    ).factor;
-    const factorUbicacion = ubicacionData.find(
-      (item) => item.tipo === selectUbicacion
-    ).factor;
-    const resultado = factorPropiedad * factorUbicacion * inputMts2 * costoM2;
-    const valorPoliza = resultado.toFixed(2);
-    setSpanValorPoliza(valorPoliza);
-    setCotizado(true);
+    if (
+      inputMts2 >= 20 &&
+      inputMts2 <= 500 &&
+      selectPropiedad !== "..." &&
+      selectUbicacion !== "..."
+    ) {
+      const factorPropiedad = propiedadData.find(
+        (item) => item.tipo === selectPropiedad
+      ).factor;
+      const factorUbicacion = ubicacionData.find(
+        (item) => item.tipo === selectUbicacion
+      ).factor;
+      const resultado = factorPropiedad * factorUbicacion * inputMts2 * costoM2;
+      const valorPoliza = resultado.toFixed(2);
+      setSpanValorPoliza(valorPoliza);
+      setCotizado(true);
+
+      // SweetAlert para cotización exitosa
+      Swal.fire({
+        icon: "success",
+        title: "Cotización realizada con éxito.",
+        showConfirmButton: false,
+        timer: 3500,
+        width: "240px",
+      });
+    } else {
+      // SweetAlert para datos incompletos
+      Swal.fire({
+        icon: "error",
+        title: "Debes completar todos los datos en pantalla.",
+        showConfirmButton: false,
+        timer: 3500,
+        width: "240px",
+      });
+    }
   };
 
   const guardar = () => {
     if (cotizado) {
       const agragarCotizacion = {
-        fecha: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+        fecha:
+          new Date().toLocaleDateString() +
+          " " +
+          new Date().toLocaleTimeString(),
         propiedad: selectPropiedad,
         ubicacion: selectUbicacion,
         mts2: inputMts2,
@@ -39,19 +67,6 @@ export function Button({
       cotizaciones.push(agragarCotizacion);
       localStorage.setItem("cotizacion", JSON.stringify(cotizaciones));
     }
-  };
-  {
-    /* SWEETALERT */
-  }
-  const handleClick = (title, icon) => {
-    cotizar();
-    Swal.fire({
-      icon: "",
-      title: "Cotización realizada con éxito.",
-      showConfirmButton: false,
-      timer: 3500,
-      width: "240px",
-    });
   };
 
   {
@@ -74,7 +89,7 @@ export function Button({
   return (
     <>
       <div className="center separador">
-        <button onClick={handleClick}>Cotizar</button>
+        <button onClick={cotizar}>Cotizar</button>
       </div>
       <div className="center separador">
         <p className="importe">

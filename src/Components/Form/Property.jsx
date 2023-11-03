@@ -1,4 +1,3 @@
-import React from "react";
 export function Property( { datos, setPropiedad} ) {
   const handleChange = (e) => {
     setPropiedad(e.target.value)};
