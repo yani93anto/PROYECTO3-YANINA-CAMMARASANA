@@ -49,6 +49,16 @@ export function Button({
         width: "240px",
       });
     }
+    if (inputMts2 < 20 || inputMts2 > 500) {
+      // SweetAlert para rango incorrecto de inputMts2
+      Swal.fire({
+        icon: "warning",
+        title: "El valor de Mts2 debe estar entre 20 y 500.",
+        showConfirmButton: false,
+        timer: 3500,
+        width: "240px",
+      });
+    }
   };
 
   const guardar = () => {
