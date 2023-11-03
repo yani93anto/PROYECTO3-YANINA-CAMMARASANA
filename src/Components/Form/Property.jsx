@@ -1,6 +1,7 @@
-export function Property( { datos, setPropiedad} ) {
+export function Property({ datos, setPropiedad }) {
   const handleChange = (e) => {
-    setPropiedad(e.target.value)};
+    setPropiedad(e.target.value);
+  };
 
   return (
     <div>

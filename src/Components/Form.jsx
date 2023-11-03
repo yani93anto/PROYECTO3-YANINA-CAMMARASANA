@@ -30,12 +30,9 @@ export function Form() {
     <div className=" center div-cotizador">
       <h2 className="center separador">Completa los datos solicitados</h2>
       <Property datos={propiedadData} setPropiedad={setSelectPropiedad} />
-      <Location datos={ubicacionData} setUbicacion={setSelectUbicacion}/>
-      <Meters2 
-        inputMts2={inputMts2}
-        setInputMts2={setInputMts2}
-      />
-      <Button 
+      <Location datos={ubicacionData} setUbicacion={setSelectUbicacion} />
+      <Meters2 inputMts2={inputMts2} setInputMts2={setInputMts2} />
+      <Button
         propiedadData={propiedadData}
         selectPropiedad={selectPropiedad}
         ubicacionData={ubicacionData}
@@ -44,7 +41,7 @@ export function Form() {
         costoM2={costoM2}
         spanValorPoliza={spanValorPoliza}
         setSpanValorPoliza={setSpanValorPoliza}
-        />
+      />
     </div>
   );
 }

@@ -88,9 +88,9 @@ export function Button({
         style: {
           background: "CornflowerBlue",
         },
-    }).showToast();
-  }
-};
+      }).showToast();
+    }
+  };
 
   return (
     <>
@@ -103,8 +103,7 @@ export function Button({
           <span
             className={`guardar ${cotizado ? "" : "ocultar"}`}
             onClick={guardar}
-            title="Guardar en historial"
-          >
+            title="Guardar en historial">
             💾
           </span>
         </p>

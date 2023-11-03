@@ -59,13 +59,17 @@ export function Historial() {
           </tbody>
         </table>
         <div className="center separador">
-          <button onClick={vaciarHistorial} className="button button-outline" id="botoneshistorial">
-          🗑️
+          <button
+            onClick={vaciarHistorial}
+            className="button button-outline"
+            id="botoneshistorial">
+            🗑️
           </button>
           <span style={{ margin: "0 10px" }} />
           <button
             onClick={() => window.history.back()}
-            className="button button-outline" id="botoneshistorial">
+            className="button button-outline"
+            id="botoneshistorial">
             VOLVER
           </button>
         </div>

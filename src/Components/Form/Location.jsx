@@ -1,6 +1,7 @@
 export function Location({ datos, setUbicacion }) {
   const handleChange = (e) => {
-    setUbicacion(e.target.value)};
+    setUbicacion(e.target.value);
+  };
   return (
     <div>
       <label htmlFor="ubicacion">Selecciona su ubicación</label>
