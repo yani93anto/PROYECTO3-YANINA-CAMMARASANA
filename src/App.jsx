@@ -1,17 +1,6 @@
-import { Header } from "./Components/Header";
-import { Form } from "./Components/Form";
 import { Historial } from "./Pages/Historial";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-// Componente Principal que contiene Header y Form
-function Principal() {
-  return (
-    <>
-      <Header />
-      <Form />
-    </>
-  );
-}
+import { Principal } from "./Pages/Principal";
 
 function App() {
   return (
