@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
 export function Historial() {
   const [cotizaciones, setcotizaciones] = useState([]);
+  const navigate = useNavigate(); // Obtiene la función navigate
 
   useEffect(() => {
     // Recupera los datos del LocalStorage
@@ -67,7 +69,7 @@ export function Historial() {
           </button>
           <span style={{ margin: "0 10px" }} />
           <button
-            onClick={() => window.history.back()}
+            onClick={() => navigate(-1)} /* Navega atrás */
             className="button button-outline"
             id="botoneshistorial">
             VOLVER
