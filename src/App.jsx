@@ -13,6 +13,11 @@ function App() {
           {/* Ruta para el historial */}
           <Route path="/historial" element={<Historial />} />
         </Routes>
+        <footer>
+          <p className="footer">
+            &copy; 2023 Yanina Cammarasana. Todos los derechos reservados.
+          </p>
+        </footer>
       </Router>
     </>
   );

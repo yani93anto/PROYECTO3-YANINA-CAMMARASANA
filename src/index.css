@@ -83,8 +83,8 @@ input {
 }
 
 #botonEmoji {
-    cursor: pointer;
-    transition: text-shadow 0.3s;
+  cursor: pointer;
+  transition: text-shadow 0.3s;
 }
 
 #botonEmoji:hover {
@@ -107,4 +107,10 @@ button:active {
 
 .text-rojo {
   color: red !important;
+}
+
+.footer {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 10px;
 }
