@@ -26,7 +26,7 @@ export function Historial() {
 
   return (
     <div>
-      <h1 className="center separador">Ver Historial 📋</h1>
+      <h1 className="center separador">Ver Historial <span id="botonEmoji" onClick={() => navigate(-1)}>📋</span></h1>
       <div className=" center div-cotizador">
         <table>
           <thead>

@@ -102,6 +102,7 @@ export function Button({
           Precio estimado: $ <span id="valorPoliza">{spanValorPoliza}</span>
           <span
             className={`guardar ${cotizado ? "" : "ocultar"}`}
+            id="botonEmoji"
             onClick={guardar}
             title="Guardar en historial">
             💾
