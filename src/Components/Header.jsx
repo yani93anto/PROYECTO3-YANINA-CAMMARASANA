@@ -5,7 +5,7 @@ export function Header() {
     <nav>
       <div className="historial">
         <Link to="historial">
-          <span title="Ver Historial">📋</span>
+          <span title="Ver Historial" id="botonEmoji">📋</span>
         </Link>
       </div>
       <h1 className="center separador">Seguros del hogar 🏡</h1>
